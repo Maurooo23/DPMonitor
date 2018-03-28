@@ -39,24 +39,24 @@
     </ion-card-content>
   </ion-card>
 
-  <button ion-button block icon-left>
+  <button ion-button block icon-left (click)="goToNetwork()">
     <ion-icon name="ios-globe-outline"></ion-icon>
     Network
   </button>
   
-  <button ion-button block icon-left>
+  <button ion-button block icon-left (click)="goToServices()">
     <ion-icon name="ios-briefcase-outline"></ion-icon>
     Services
   </button>
 
-  <button ion-button block icon-left>
+  <button ion-button block icon-left (click)="goToLogs()">
     <ion-icon name="ios-list-box-outline"></ion-icon>
     Logs
   </button>
   
-  <button ion-button block icon-left>
-    <ion-icon name="ios-pulse-outline"></ion-icon>
-    Salud
+  <button ion-button block icon-left (click)="goToLists()">
+    <ion-icon name="ios-people-outline"></ion-icon>
+    Usuarios
   </button>
 
 </ion-content>

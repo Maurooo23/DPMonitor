@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the AdmindpPage page.
+ * Generated class for the ServicesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-admindp',
-  templateUrl: 'admindp.html',
+  selector: 'page-services',
+  templateUrl: 'services.html',
 })
-export class AdmindpPage {
+export class ServicesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AdmindpPage');
+    console.log('ionViewDidLoad ServicesPage');
   }
-  
+
 }
