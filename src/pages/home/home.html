@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>DataFlow</ion-title>
+    <button end ion-button menuToggle > 
+      <ion-icon name="contact"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header text-center>
+      Información DataPower
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item class="item-icon-left">
+          <ion-icon name="ios-pricetags-outline"></ion-icon>
+          Firmware:
+          <span class="item-note">
+            {{version}}
+          </span>
+        </ion-item>
+        <ion-item class="item-icon-left">
+          <ion-icon name="ios-stopwatch-outline"></ion-icon>
+          Uptime:
+          <span class="item-note">
+           {{uptime2}}
+          </span>
+        </ion-item>
+        <ion-item class="item-icon-left">
+          <ion-icon name="ios-bookmark-outline"></ion-icon>
+          DP:
+          <span class="item-note">
+           {{uptime2}}
+          </span>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button block icon-left>
+    <ion-icon name="ios-globe-outline"></ion-icon>
+    Network
+  </button>
+  
+  <button ion-button block icon-left>
+    <ion-icon name="ios-briefcase-outline"></ion-icon>
+    Services
+  </button>
+
+  <button ion-button block icon-left>
+    <ion-icon name="ios-list-box-outline"></ion-icon>
+    Logs
+  </button>
+  
+  <button ion-button block icon-left>
+    <ion-icon name="ios-pulse-outline"></ion-icon>
+    Salud
+  </button>
+
+</ion-content>

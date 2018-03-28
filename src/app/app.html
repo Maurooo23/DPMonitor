@@ -1,0 +1,38 @@
+<ion-menu side="right" [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title text-center>Usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name='ios-contact-outline' item-start></ion-icon>
+          Usuario
+          <ion-note item-end>
+          Usuario
+          </ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-icon name='ios-at-outline' item-start></ion-icon>
+          Correo
+          <ion-note item-end>
+          Correo
+          </ion-note>
+        </ion-item>
+    <!--    <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-icon name="ios-radio-button-on-outline" item-start></ion-icon>
+            {{p.title}}
+        </button> -->
+        <button menuClose ion-item (click)="goToAdmindp()">
+          dp
+        </button>
+        <hr>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>
