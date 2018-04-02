@@ -14,6 +14,7 @@ import { ServicesPage } from '../pages/services/services';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AjaxServicesProvider } from '../providers/ajax-services/ajax-services';
+import { ApiProvider } from '../providers/api/api';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AjaxServicesProvider } from '../providers/ajax-services/ajax-services';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AjaxServicesProvider
+    AjaxServicesProvider,
+    ApiProvider
   ]
 })
 export class AppModule {}
