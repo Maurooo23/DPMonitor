@@ -10,6 +10,7 @@ import { AdmindpPage } from '../pages/admindp/admindp';
 import { NetworkPage } from '../pages/network/network';
 import { LogsPage } from '../pages/logs/logs';
 import { ServicesPage } from '../pages/services/services';
+import { ServicesDetailsPage } from '../pages/services-details/services-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,7 +25,8 @@ import { ApiProvider } from '../providers/api/api';
     AdmindpPage,
     NetworkPage,
     LogsPage,
-    ServicesPage
+    ServicesPage,
+    ServicesDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { ApiProvider } from '../providers/api/api';
     AdmindpPage,
     NetworkPage,
     LogsPage,
-    ServicesPage
+    ServicesPage,
+    ServicesDetailsPage
   ],
   providers: [
     StatusBar,

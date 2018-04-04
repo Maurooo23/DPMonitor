@@ -13,8 +13,17 @@
   </ion-navbar> 
 </ion-header>
 
-
-<ion-content padding>
-<h3 text-center>Network Page!</h3>
-<p>network</p>
-</ion-content>
+<ion-content padding class="bg-fondo">
+    <ion-list>
+      <ion-item *ngFor="let network of networks" (click)="toggleDetails(network)" >
+        <ion-icon item-end [name]="network.icon"></ion-icon>
+        Red:  {{network.Name}} - {{network.IP}}
+        <div *ngIf="network.showDetails">
+            <ion-item >RxHCPackets: {{network.RxHCPackets}}</ion-item>
+            <ion-item >RxErrors2: {{network.RxErrors2}}</ion-item>
+            <ion-item >TxHCPackets: {{network.TxHCPackets}}</ion-item>
+            <ion-item >TxErrors2: {{network.TxErrors2}}</ion-item>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>

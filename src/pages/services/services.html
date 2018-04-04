@@ -14,6 +14,39 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding class="bg-fondo">
+  <ion-list >
+    <ion-item (click)="goToDetails(servicesMpg)">
+      MultiProcolGateway <br>
+      <small>{{servicesMpg?.length}} Servicios.</small>
+    </ion-item>
+    <ion-item (click)="goToDetails(servicesWsg)">
+        Web Service Proxy <br>
+        <small>{{servicesWsg?.length}} Servicios.</small>
+    </ion-item>
+    <ion-item (click)="goToDetails(servicesXmlf)">
+        XML Firewall <br>
+        <small>{{servicesXmlf?.length}} Servicios.</small>
+    </ion-item>
+    <ion-item (click)="goToDetails(servicesWafw)">
+        Web Aplication Firewall <br>
+        <small>{{servicesWafw?.length}} Servicios.</small>
+    </ion-item>
+    <ion-item (click)="goToDetails(servicesXsl)">
+        XSL Accelerator <br>
+        <small>{{servicesXsl?.length}} Servicios.</small>
+    </ion-item>
+  <!--  <ion-item *ngFor="let wsg of wsg_services" (click)="goToDetails()">
+      {{wsg.Class}}
+    </ion-item>
+    <ion-item *ngFor="let xmlfw of xmlfw_services" (click)="goToDetails()">
+      {{xmlfw.Class}}
+    </ion-item>
+    <ion-item *ngFor="let wafw  of wafw_services" (click)="goToDetails()">
+      {{wafw.Class}}
+    </ion-item>
+    <ion-item *ngFor="let xsl of xsl_services" (click)="goToDetails()">
+      {{xsl.Class}}
+    </ion-item> -->
+  </ion-list>
 </ion-content>

@@ -18,21 +18,36 @@ import { AjaxServicesProvider } from '../../providers/ajax-services/ajax-service
 })
 export class NetworkPage {
 
- /* network: string;*/
+ networks : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ajaxServices: AjaxServicesProvider) {
    
-    /*ajaxServices.network().subscribe(data => {
-      this.network = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"];
-      console.log(this.network);
+    ajaxServices.network().subscribe(data => {
+      this.networks = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"];
+      for (let index = 0; index < this.networks.length; index++) {
+        this.networks[index].showDetails = false;
+        this.networks[index].icon = 'ios-arrow-dropdown-circle-outline';
+      }
+     
+      console.log(this.networks);
     }, err => {
        console.log(err.message);
-    });*/
+    });
+
 
   }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad NetworkPage');
   }
-
+  
+  toggleDetails(network) {
+    if (network.showDetails) {
+        network.showDetails = false;
+        network.icon = 'ios-arrow-dropdown-circle-outline';
+    } else {
+        network.showDetails = true;
+        network.icon = 'ios-arrow-dropup-circle-outline';
+    }
+  }
 }

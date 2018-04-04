@@ -19,10 +19,24 @@ export class AjaxServicesProvider {
     return this.api.get('/mon/datetime?domain=default', params);
   }
 
-/*  network(params?: any){
+  network(params?: any){
     return this.api.get('/mon/network', params);
-  }*/
+  } 
 
-
+  mpg_services(dominio?: string){
+    return this.api.get('/mon/services?domain=' + dominio + '&class=MultiProtocolGateway');
+  } 
+  wsg_services(dominio?: string){
+    return this.api.get('/mon/services?domain=' + dominio + '&class=WSGateway')
+  }
+  xmlfw_services(dominio?: string){
+    return this.api.get('/mon/services?domain=' + dominio + '&class=XMLFirewallService')
+  }
+  wafw_services(dominio?: string){
+    return this.api.get('/mon/services?domain=' + dominio + '&class=WebAppFW')
+  }
+  xsl_services(dominio?: string){
+    return this.api.get('/mon/services?domain=' + dominio + '&class=XSLProxyService')
+  }
 
 }
