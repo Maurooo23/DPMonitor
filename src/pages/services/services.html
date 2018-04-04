@@ -15,6 +15,15 @@
 
 
 <ion-content padding class="bg-fondo">
+
+    <ion-item>
+        <ion-label>Dominios</ion-label>
+        <ion-select interface="popover" multiple="false" [(ngModel)]="select_dominios" (ionChange)="onChange(select_dominios)">
+          <ion-option *ngFor="let dominio of domains"  [selected]="select_dominios == dominio" [value]="dominio">{{dominio}}</ion-option>
+        </ion-select>
+    </ion-item> 
+
+
   <ion-list >
     <ion-item (click)="goToDetails(servicesMpg)">
       MultiProcolGateway <br>

@@ -39,4 +39,12 @@ export class AjaxServicesProvider {
     return this.api.get('/mon/services?domain=' + dominio + '&class=XSLProxyService')
   }
 
+  getDomains(params?: any){
+    return this.api.get('/mon/domain', params);
+  } 
+
+  getUsuarios(params?: any){
+    return this.api.get('/mon/user', params);
+  }
+
 }

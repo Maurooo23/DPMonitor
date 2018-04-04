@@ -7,6 +7,14 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="bg-fondo" >
-
+<ion-content padding class="bg-fondo" >
+    <ion-list>
+        <ion-item *ngFor="let usuario of usuarios">
+          Usuario:  {{usuario.name}}
+          <div>
+              <ion-item >Login: {{usuario.login}}</ion-item>
+              <ion-item >Domain: {{usuario.domain}}</ion-item>
+          </div>
+        </ion-item>
+      </ion-list>
 </ion-content>
