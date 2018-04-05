@@ -37,7 +37,7 @@ export class ListPage {
             this.usuarios[index].icon = 'ios-arrow-dropdown-circle-outline';
           }
       console.log(this.domains);
-      console.log(this.usuarios);
+      console.log(this.usuarios.length);
     }, err => {
        console.log(err.message);
     });

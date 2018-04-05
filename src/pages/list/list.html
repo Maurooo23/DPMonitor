@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title text-center icon-left><ion-icon name="ios-people-outline"></ion-icon>Conecciones</ion-title>
+    <ion-title text-center icon-left><ion-icon name="ios-people-outline"></ion-icon>Conexiones</ion-title>
     <button end ion-button menuToggle > 
       <ion-icon name="contact"></ion-icon>
     </button>
@@ -15,8 +15,14 @@
           </ion-select>
       </ion-item> 
       <br>
+      <ion-item >
+          Conexiones de Usuarios:  {{usuarios?.length}}
+      </ion-item>
+ 
+      <br>
 <ion-list >
   <ion-item *ngFor="let usuario of usuarios" (click)="toggleDetails(usuario)"> 
+    
       <ion-icon item-end [name]="usuario.icon"></ion-icon>
      Usuario: {{usuario.name}}
         <div *ngIf="usuario.showDetails">
