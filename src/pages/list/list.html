@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title text-center icon-left><ion-icon name="ios-people-outline"></ion-icon>Usuarios</ion-title>
+    <ion-title text-center icon-left><ion-icon name="ios-people-outline"></ion-icon>Conecciones</ion-title>
     <button end ion-button menuToggle > 
       <ion-icon name="contact"></ion-icon>
     </button>
@@ -8,13 +8,23 @@
 </ion-header>
 
 <ion-content padding class="bg-fondo" >
-    <ion-list>
-        <ion-item *ngFor="let usuario of usuarios">
-          Usuario:  {{usuario.name}}
-          <div>
-              <ion-item >Login: {{usuario.login}}</ion-item>
-              <ion-item >Domain: {{usuario.domain}}</ion-item>
-          </div>
-        </ion-item>
-      </ion-list>
-</ion-content>
+      <ion-item>
+          <ion-label>Dominios</ion-label>
+          <ion-select interface="popover" multiple="false" [(ngModel)]="select_dominios" (ionChange)="onChange(select_dominios)">
+            <ion-option *ngFor="let domain of domains"  [selected]="select_dominios == dominio" [value]="dominio">{{domain}}</ion-option>
+          </ion-select>
+      </ion-item> 
+      <br>
+<ion-list >
+  <ion-item *ngFor="let usuario of usuarios" (click)="toggleDetails(usuario)"> 
+      <ion-icon item-end [name]="usuario.icon"></ion-icon>
+     Usuario: {{usuario.name}}
+        <div *ngIf="usuario.showDetails">
+            <ion-item >Address: {{usuario.address}}</ion-item>
+            <ion-item >Connection: {{usuario.connection}}</ion-item>
+            <ion-item >Login: {{usuario.login}}</ion-item>
+            <ion-item >Session: {{usuario.session}}</ion-item>
+        </div>
+  </ion-item>
+</ion-list>
+</ion-content> 
