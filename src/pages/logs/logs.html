@@ -20,4 +20,18 @@
           <ion-option *ngFor="let dominio of domains"  [selected]="select_dominios == dominio" [value]="dominio">{{dominio}}</ion-option>
         </ion-select>
     </ion-item> 
+    <br>
+
+    <ion-list>
+      <ion-item *ngFor="let log of logs" (click)="toggleDetails(log)" >
+        <ion-icon item-end [name]="log.icon"></ion-icon>
+        Tipo-Log:  {{log.type}} - Level: {{log.level}}
+        <div *ngIf="log.showDetails">
+            <ion-item >Date-Time: {{log["date-time"]}}</ion-item>
+            <ion-item >Date: {{log.date}}</ion-item>
+            <ion-item >Log-Time: {{log.time}}</ion-item>
+            <ion-item>Message: {{log.message}}</ion-item>
+        </div>
+      </ion-item>
+    </ion-list>
 </ion-content>

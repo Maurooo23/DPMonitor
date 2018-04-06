@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { AddDpPage } from '../add-dp/add-dp';
-
 /**
- * Generated class for the AdmindpPage page.
+ * Generated class for the ServicesDetailsCountPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,19 +10,16 @@ import { AddDpPage } from '../add-dp/add-dp';
 
 @IonicPage()
 @Component({
-  selector: 'page-admindp',
-  templateUrl: 'admindp.html',
+  selector: 'page-services-details-count',
+  templateUrl: 'services-details-count.html',
 })
-export class AdmindpPage {
+export class ServicesDetailsCountPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AdmindpPage');
+    console.log('ionViewDidLoad ServicesDetailsCountPage');
   }
-  
-  goToAddDp(){
-    this.navCtrl.push(AddDpPage);
-  }
+
 }
