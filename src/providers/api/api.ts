@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 export class ApiProvider {
 
   url: string = 'http://192.168.50.41:5555';
+  url2: string = 'http://192.168.50.44:5555';
 
   constructor(public http: HttpClient) {
     console.log('Hello ApiProvider Provider');
