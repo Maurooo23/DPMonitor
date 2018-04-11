@@ -18,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AjaxServicesProvider } from '../providers/ajax-services/ajax-services';
 import { ApiProvider } from '../providers/api/api';
 
+ 
 @NgModule({
   declarations: [
     MyApp,

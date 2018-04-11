@@ -14,14 +14,10 @@ import { AjaxServicesProvider } from '../../providers/ajax-services/ajax-service
   providers: [AjaxServicesProvider]
 })
 export class HomePage {
-
   firmware: string;
   uptime: string;
   ip: string;
-  
-
   constructor(public navCtrl: NavController, public ajaxServices: AjaxServicesProvider) {
-
     ajaxServices.firmware().subscribe(data => {
       this.firmware = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"].FirmwareVersion.Version;
     }, err => {
@@ -32,19 +28,8 @@ export class HomePage {
     }, err => {
       console.log(err.message);
     });
-    this.ip = '127.0.0.1';
-    /*
-    info.ip().subscribe(data => {
-      this.ip = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"].FirmwareVersion.Version;
-    }, err => {
-      console.log(err.message);
-    });
-    */
-   
-  
+    this.ip = '127.0.0.1';  
   }
-
-
   goToNetwork(){
     this.navCtrl.push(NetworkPage);
   }
@@ -57,5 +42,4 @@ export class HomePage {
   goToLists(){
     this.navCtrl.push(ListPage);
   }
-
 }

@@ -19,10 +19,22 @@
         <ion-icon item-end [name]="network.icon"></ion-icon>
         Red:  {{network.Name}} - {{network.IP}}
         <div *ngIf="network.showDetails">
-            <ion-item >RxHCPackets: {{network.RxHCPackets}}</ion-item>
-            <ion-item >RxErrors2: {{network.RxErrors2}}</ion-item>
-            <ion-item >TxHCPackets: {{network.TxHCPackets}}</ion-item>
-            <ion-item >TxErrors2: {{network.TxErrors2}}</ion-item>
+          <ion-row>
+            <ion-col col-6>
+                <ion-item >Paquetes Recibidos: <br>{{network.RxHCPackets}}</ion-item>
+            </ion-col>
+             <ion-col col-6>
+                <ion-item >Recibidos con Errores: <br> {{network.RxErrors2}}</ion-item>
+             </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-6>
+                  <ion-item >Paquetes Transimitidos: <br> {{network.TxHCPackets}}</ion-item>
+              </ion-col>
+               <ion-col col-6>
+                  <ion-item >Transmitidos con Errores: <br> {{network.TxErrors2}}</ion-item>
+               </ion-col>
+            </ion-row>
         </div>
       </ion-item>
     </ion-list>

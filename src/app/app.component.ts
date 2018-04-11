@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
 import { HomePage } from '../pages/home/home';
 import { AdmindpPage } from '../pages/admindp/admindp';
 
@@ -21,12 +22,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-    
     { title: 'AdminDP', component: AdmindpPage }
     ];
-
+   
   }
-  
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -41,7 +40,6 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }*/
-
   goToAdmindp(){
     this.nav.push(AdmindpPage);
   }

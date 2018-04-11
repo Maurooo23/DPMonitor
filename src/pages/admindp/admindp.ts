@@ -16,14 +16,11 @@ import { AddDpPage } from '../add-dp/add-dp';
   templateUrl: 'admindp.html',
 })
 export class AdmindpPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdmindpPage');
   }
-  
   goToAddDp(){
     this.navCtrl.push(AddDpPage);
   }
