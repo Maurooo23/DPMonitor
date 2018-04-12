@@ -17,7 +17,13 @@ export class HomePage {
   firmware: string;
   uptime: string;
   ip: string;
+  SelectedValued: any;
+  
+
   constructor(public navCtrl: NavController, public ajaxServices: AjaxServicesProvider) {
+  
+    this.SelectedValued = "http://192.168.50.41:5555";
+
     ajaxServices.firmware().subscribe(data => {
       this.firmware = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"].FirmwareVersion.Version;
     }, err => {
@@ -28,8 +34,10 @@ export class HomePage {
     }, err => {
       console.log(err.message);
     });
-    this.ip = '127.0.0.1';  
+    this.ip = '127.0.0.1';
   }
+
+  
   goToNetwork(){
     this.navCtrl.push(NetworkPage);
   }
@@ -41,5 +49,9 @@ export class HomePage {
   }
   goToLists(){
     this.navCtrl.push(ListPage);
+  }
+  onChange(ips){
+    this.SelectedValued = ips;
+    console.log(ips);
   }
 }
