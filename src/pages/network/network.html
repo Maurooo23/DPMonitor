@@ -15,27 +15,25 @@
 
 <ion-content padding class="bg-fondo">
     <ion-list>
-      <ion-item *ngFor="let network of networks" (click)="toggleDetails(network)" >
-        <ion-icon item-end [name]="network.icon"></ion-icon>
+      <ion-item *ngFor="let network of networks">
         Red:  {{network.Name}} - {{network.IP}}
-        <div *ngIf="network.showDetails">
           <ion-row>
             <ion-col col-6>
-                <ion-item >Paquetes Recibidos: <br>{{network.RxHCPackets}}</ion-item>
+                <ion-item >Paquetes Recibidos: <br>{{network.RxHCPackets}} (RxHC)</ion-item>
             </ion-col>
              <ion-col col-6>
-                <ion-item >Recibidos con Errores: <br> {{network.RxErrors2}}</ion-item>
+                <ion-item >Recibidos con Errores: <br> {{network.RxErrors2}} (RxError)</ion-item>
              </ion-col>
           </ion-row>
           <ion-row>
               <ion-col col-6>
-                  <ion-item >Paquetes Transimitidos: <br> {{network.TxHCPackets}}</ion-item>
+                  <ion-item >Paquetes Transimitidos: <br> {{network.TxHCPackets}} (TxHC)</ion-item>
               </ion-col>
                <ion-col col-6>
-                  <ion-item >Transmitidos con Errores: <br> {{network.TxErrors2}}</ion-item>
+                  <ion-item >Transmitidos con Errores: <br> {{network.TxErrors2}} (TxError)</ion-item>
                </ion-col>
             </ion-row>
-        </div>
       </ion-item>
+      <br>
     </ion-list>
   </ion-content>

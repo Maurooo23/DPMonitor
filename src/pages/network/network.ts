@@ -23,15 +23,11 @@ export class NetworkPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public ajaxServices: AjaxServicesProvider) {
    
 
-
-function formatNumber (n) {
+    function formatNumber (n) {
     	n = String(n).replace(/\D/g, "");
       n= n === '' ? n : Number(n).toLocaleString();
       return n;
     }
-  
-
-
     ajaxServices.network().subscribe(data => {
       this.networks = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"];
       for (let index = 0; index < this.networks.length; index++) {
@@ -51,8 +47,25 @@ function formatNumber (n) {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad NetworkPage');
+
+    function formatNumber (n) {
+    	n = String(n).replace(/\D/g, "");
+      n= n === '' ? n : Number(n).toLocaleString();
+      return n;
+    }
+    setInterval(() => { this.ajaxServices.network().subscribe(data => {
+      this.networks = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"];
+      for (let index = 0; index < this.networks.length; index++) {
+        this.networks[index].RxHCPackets = formatNumber(this.networks[index].RxHCPackets)
+        this.networks[index].TxHCPackets = formatNumber(this.networks[index].TxHCPackets)
+      }
+     
+      console.log(this.networks);
+    }, err => {
+       console.log(err.message);
+    }); }, 1000);
+   
   }
-  
   toggleDetails(network) {
     if (network.showDetails) {
         network.showDetails = false;
