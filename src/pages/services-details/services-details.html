@@ -17,7 +17,16 @@
 <ion-content padding class="bg-fondo">
  <ion-list>
    <ion-item *ngFor="let servicio of listaServicios"> 
-      Nombre: {{servicio.Name}}
+    <div *ngIf="servicio.OpState == 'up'; then content else other_content"></div>
+    <ng-template #content>
+      <ion-icon class="checkIcon"  name="checkmark-circle"></ion-icon> -  Nombre: {{servicio.Name}}
+    </ng-template>
+    <ng-template #other_content>
+      <ion-icon class="warnIcon" name="ios-warning"></ion-icon> - Nombre: {{servicio.Name}}
+    </ng-template>
+    
+      <br>
+      AdminState: {{servicio.AdminState}}
    </ion-item>
    <div *ngIf="listaServicios.length==0">
       No hay Servicios Disponibles.
