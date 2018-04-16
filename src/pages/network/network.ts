@@ -53,7 +53,7 @@ export class NetworkPage {
       n= n === '' ? n : Number(n).toLocaleString();
       return n;
     }
-    setInterval(() => { this.ajaxServices.network().subscribe(data => {
+     setInterval(() => { this.ajaxServices.network().subscribe(data => {
       this.networks = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"];
       for (let index = 0; index < this.networks.length; index++) {
         this.networks[index].RxHCPackets = formatNumber(this.networks[index].RxHCPackets)
@@ -65,6 +65,7 @@ export class NetworkPage {
        console.log(err.message);
     }); }, 1000);
    
+
   }
   toggleDetails(network) {
     if (network.showDetails) {

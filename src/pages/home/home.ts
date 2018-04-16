@@ -5,24 +5,22 @@ import { LogsPage } from '../logs/logs';
 import { ServicesPage } from '../services/services'; 
 import { ListPage } from '../list/list';
 import { AjaxServicesProvider } from '../../providers/ajax-services/ajax-services';
-
+import { DpProvider } from '../../providers/dp/dp';
 
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [AjaxServicesProvider]
+  providers: [AjaxServicesProvider, DpProvider]
 })
 export class HomePage {
   firmware: string;
   uptime: string;
   ip: string;
-  SelectedValued: any;
   
 
-  constructor(public navCtrl: NavController, public ajaxServices: AjaxServicesProvider) {
+  constructor(public navCtrl: NavController, public ajaxServices: AjaxServicesProvider, public dp:DpProvider) {
   
-    this.SelectedValued = "http://192.168.50.41:5555";
 
     ajaxServices.firmware().subscribe(data => {
       this.firmware = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"].FirmwareVersion.Version;
@@ -51,7 +49,7 @@ export class HomePage {
     this.navCtrl.push(ListPage);
   }
   onChange(ips){
-    this.SelectedValued = ips;
+    this.dp.setUrl(ips);
     console.log(ips);
   }
 }

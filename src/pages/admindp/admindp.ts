@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { MqttMessage, MqttModule, MqttService } from 'ngx-mqtt';
+// import { Observable } from 'rxjs/Observable';
+
 import { AddDpPage } from '../add-dp/add-dp';
 
 /**
@@ -16,12 +19,36 @@ import { AddDpPage } from '../add-dp/add-dp';
   templateUrl: 'admindp.html',
 })
 export class AdmindpPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  sensor1: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,  private mqttService: MqttService) {
+    
+   
+    
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdmindpPage');
-  }
-  goToAddDp(){
-    this.navCtrl.push(AddDpPage);
-  }
+
+      ionViewDidLoad() {
+        console.log('ionViewDidLoad AdmindpPage');
+      }
+      goToAddDp(){
+        this.navCtrl.push(AddDpPage);
+      }
+
+      suscribe(topic: string){
+        var response;
+        this.mqttService.observe(topic).subscribe((message: MqttMessage) => 
+        {
+          response = JSON.parse(message.payload.toString());
+          console.log(response[0].nombre)
+          return response
+          
+        });
+    }
+
+      public unsafePublish(topic: string, message: string ): void 
+      {
+        this.mqttService.unsafePublish(topic, message, {qos: 0, retain: false});
+      }
+
 }

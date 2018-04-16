@@ -17,36 +17,29 @@ import { AjaxServicesProvider } from '../../providers/ajax-services/ajax-service
   providers: [AjaxServicesProvider]
 })
 export class LogsPage {
-  
   domains: any;
   select_dominios: any;
   logs: any;
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public ajaxServices: AjaxServicesProvider) {
     this.select_dominios = 'default';
-
     ajaxServices.getDomains().subscribe(data => {
       this.domains = data["env:Envelope"]["env:Body"]["amp:GetDomainListResponse"];
-     
       console.log(this.domains);
     }, err => {
        console.log(err.message);
     });
-
     ajaxServices.getLog(this.select_dominios).subscribe(data =>{
       this.logs = data["env:Envelope"]["env:Body"]["dp:response"]["dp:log"];
       for (let index = 0; index < this.logs.length; index++) {
         this.logs[index].showDetails = false;
         this.logs[index].icon = 'ios-arrow-dropdown-circle-outline';
       }
-
+     this.logs = this.logs.slice(0, 11);
       console.log(this.logs);
     }, err => {
       console.log(err.message);
     });
-    
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogsPage');
   }
@@ -59,7 +52,6 @@ export class LogsPage {
         log.icon = 'ios-arrow-dropup-circle-outline';
     }
   }
-
   onChange(selectDominio){
     this.select_dominios = selectDominio;
     console.log(selectDominio);
@@ -69,12 +61,10 @@ export class LogsPage {
         this.logs[index].showDetails = false;
         this.logs[index].icon = 'ios-arrow-dropdown-circle-outline';
       }
-
+      this.logs = this.logs.slice(0, 11);
       console.log(this.logs);
     }, err => {
       console.log(err.message);
     });
-
   }
-
 }

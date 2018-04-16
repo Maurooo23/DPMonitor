@@ -3,6 +3,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 
+import { Observable } from 'rxjs/Observable';
+import {
+  MqttMessage,
+  MqttModule,
+  MqttService
+} from 'ngx-mqtt';
+
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -17,8 +25,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AjaxServicesProvider } from '../providers/ajax-services/ajax-services';
 import { ApiProvider } from '../providers/api/api';
+import { DpProvider } from '../providers/dp/dp';
+import { MqttProvider } from '../providers/mqtt/mqtt';
 
- 
+export const MQTT_SERVICE_OPTIONS = {
+  hostname: '192.168.50.25',
+  port: 1883,
+  path: '/mon'
+};
+export function mqttServiceFactory() {
+  return new MqttService(MQTT_SERVICE_OPTIONS);
+}
+
 @NgModule({
   declarations: [
     MyApp,
@@ -34,6 +52,10 @@ import { ApiProvider } from '../providers/api/api';
   imports: [
     BrowserModule,
     HttpClientModule,
+    MqttModule.forRoot({
+      provide: MqttService,
+      useFactory: mqttServiceFactory
+    }),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -53,7 +75,9 @@ import { ApiProvider } from '../providers/api/api';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AjaxServicesProvider,
-    ApiProvider
+    ApiProvider,
+    DpProvider,
+    MqttProvider
   ]
 })
 export class AppModule {}
