@@ -12,11 +12,11 @@ export class AjaxServicesProvider {
   }
 
   firmware(params?: any) {
-    return this.api.get('/mon/info', params);
+    return this.api.get('/info', params);
   }
 
   uptime(params?: any) {
-    return this.api.get('/mon/datetime?domain=default', params);
+    return this.api.get('/uptime', params);
   }
 
   network(params?: any){
@@ -40,7 +40,7 @@ export class AjaxServicesProvider {
   }
   
   getLog(dominio?: any){
-    return this.api.get('mon/log?domain='+ dominio + '');
+    return this.api.get('/mon/log?domain='+ dominio + '');
   }
 
   getDomains(params?: any){

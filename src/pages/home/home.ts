@@ -23,12 +23,15 @@ export class HomePage {
   
 
     ajaxServices.firmware().subscribe(data => {
-      this.firmware = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"].FirmwareVersion.Version;
+      console.log(data)
+     // this.firmware = data["Version"];
+      
     }, err => {
       console.log(err.message);
     });
     ajaxServices.uptime().subscribe(data => {
       this.uptime = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"]["DateTimeStatus"].uptime2;
+      console.log(this.uptime)
     }, err => {
       console.log(err.message);
     });

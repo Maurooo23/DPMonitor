@@ -13,11 +13,11 @@ export class ApiProvider {
   
 
 //url: string;
-// url: string = 'http://192.168.50.41:5555';
-// url: string = 'http://192.168.50.44:5555';
+// url: string = 'http://192.168.50.41:5556';
+// url: string = 'http://192.168.50.44:5556';
 
   constructor(public http: HttpClient, public dp: DpProvider) {
-    this.dp.url = 'http://192.168.50.41:5555';
+    this.dp.url = 'http://192.168.50.41:5556';
     console.log('Hello ApiProvider Provider');
   }
   get(endpoint: string, params?: any, reqOpts?: any) {
@@ -33,6 +33,7 @@ export class ApiProvider {
         reqOpts.params = reqOpts.params.set(k, params[k]);
       }
     }
+    console.log(this.dp.getUrl() + '/' + endpoint, reqOpts)
     return this.http.get(this.dp.getUrl() + '/' + endpoint, reqOpts);
   }
 
