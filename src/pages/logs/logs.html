@@ -17,7 +17,7 @@
     <ion-item>
         <ion-label>Dominios</ion-label>
         <ion-select interface="popover" multiple="false" [(ngModel)]="select_dominios" (ionChange)="onChange(select_dominios)">
-          <ion-option *ngFor="let dominio of domains"  [selected]="select_dominios == dominio" [value]="dominio">{{dominio}}</ion-option>
+          <ion-option *ngFor="let dominio of domains"  [selected]="select_dominios == dominio.Name" [value]="dominio.Name">{{dominio.Name}}</ion-option>
         </ion-select>
     </ion-item> 
     <br>

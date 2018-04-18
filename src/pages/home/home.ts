@@ -23,15 +23,16 @@ export class HomePage {
   
 
     ajaxServices.firmware().subscribe(data => {
-      console.log(data)
-     // this.firmware = data["Version"];
+      //console.log(data["version"])
+     this.firmware = data["version"];
       
     }, err => {
       console.log(err.message);
     });
     ajaxServices.uptime().subscribe(data => {
-      this.uptime = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"]["DateTimeStatus"].uptime2;
-      console.log(this.uptime)
+      //console.log(data);
+      this.uptime = data["UptimeStatus"]["uptime2"];
+      
     }, err => {
       console.log(err.message);
     });
@@ -53,6 +54,6 @@ export class HomePage {
   }
   onChange(ips){
     this.dp.setUrl(ips);
-    console.log(ips);
+   // console.log(ips);
   }
 }

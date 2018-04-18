@@ -20,16 +20,18 @@ export class LogsPage {
   domains: any;
   select_dominios: any;
   logs: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public ajaxServices: AjaxServicesProvider) {
     this.select_dominios = 'default';
     ajaxServices.getDomains().subscribe(data => {
-      this.domains = data["env:Envelope"]["env:Body"]["amp:GetDomainListResponse"];
-      console.log(this.domains);
+      this.domains = data["Domain"];
+     // console.log(this.domains);
     }, err => {
        console.log(err.message);
     });
     ajaxServices.getLog(this.select_dominios).subscribe(data =>{
-      this.logs = data["env:Envelope"]["env:Body"]["dp:response"]["dp:log"];
+     // console.log(data)
+     this.logs = data["Log"];
       for (let index = 0; index < this.logs.length; index++) {
         this.logs[index].showDetails = false;
         this.logs[index].icon = 'ios-arrow-dropdown-circle-outline';
@@ -56,7 +58,7 @@ export class LogsPage {
     this.select_dominios = selectDominio;
     console.log(selectDominio);
     this.ajaxServices.getLog(this.select_dominios).subscribe(data =>{
-      this.logs = data["env:Envelope"]["env:Body"]["dp:response"]["dp:log"];
+      this.logs = data["Log"];
       for (let index = 0; index < this.logs.length; index++) {
         this.logs[index].showDetails = false;
         this.logs[index].icon = 'ios-arrow-dropdown-circle-outline';

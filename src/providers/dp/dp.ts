@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+
 /*
   Generated class for the DpProvider provider.
 
@@ -13,16 +14,15 @@ export class DpProvider {
   url: any;
 
   constructor(public http: HttpClient) {
-    console.log('Hello DpProvider Provider');
+   // console.log('Hello DpProvider Provider');
   }
 
-getUrl(){
-  return this.url;
-  
-}
+  getUrl(){
+    console.log(this.url)
+    return this.url;
+  }
 
-setUrl(inUrl){
-  this.url = inUrl;
-}
-
+  setUrl(inUrl){
+    this.url = inUrl;
+  }
 }

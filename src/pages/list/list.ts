@@ -19,7 +19,8 @@ export class ListPage {
     this.select_dominios = 'default';
 
     ajaxServices.getUsuarios().subscribe(data => {
-      var ordenar = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"];
+      //console.log(data)
+     var ordenar = data["users"]; 
       var ordenados = {};
 
       ordenar.forEach(item => {
@@ -43,10 +44,9 @@ export class ListPage {
     });
   }
 
-
   onChange(selectDominio){
     this.ajaxServices.getUsuarios().subscribe(data => {
-      var ordenar = data["env:Envelope"]["env:Body"]["dp:response"]["dp:status"];
+      var ordenar = data["users"];
       var ordenados = {};
       
       ordenar.forEach(item => {
@@ -63,14 +63,12 @@ export class ListPage {
         this.usuarios[index].showDetails = false;
         this.usuarios[index].icon = 'ios-arrow-dropdown-circle-outline';
       }
-      console.log(this.domains);
-      console.log(this.usuarios);
+  //    console.log(this.domains);
+    //  console.log(this.usuarios);
     }, err => {
        console.log(err.message);
     });
-    console.log(selectDominio);
 }
-
 
       toggleDetails(usuario) {
         if (usuario.showDetails) {

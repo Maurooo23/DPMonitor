@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
 import { ApiProvider } from '../api/api';
-
+import { DpProvider } from '../dp/dp';
 @Injectable()
 export class AjaxServicesProvider {
 
-  constructor(public http: HttpClient, public api: ApiProvider) {
-    console.log('Hello AjaxServicesProvider Provider');
+  constructor(public http: HttpClient, public api: ApiProvider,public dp: DpProvider) {
+   // console.log('Hello AjaxServicesProvider Provider');
   }
 
   firmware(params?: any) {
@@ -20,35 +20,24 @@ export class AjaxServicesProvider {
   }
 
   network(params?: any){
-    return this.api.get('/mon/network', params);
+    return this.api.get('/network', params);
   } 
 
-  mpg_services(dominio?: string){
-    return this.api.get('/mon/services?domain=' + dominio + '&class=MultiProtocolGateway');
+  getServices(dominio?: string){
+    console.log(this.dp.getUrl())
+    return this.api.get('/services?dominio=' + dominio);
   } 
-  wsg_services(dominio?: string){
-    return this.api.get('/mon/services?domain=' + dominio + '&class=WSGateway')
-  }
-  xmlfw_services(dominio?: string){
-    return this.api.get('/mon/services?domain=' + dominio + '&class=XMLFirewallService')
-  }
-  wafw_services(dominio?: string){
-    return this.api.get('/mon/services?domain=' + dominio + '&class=WebAppFW')
-  }
-  xsl_services(dominio?: string){
-    return this.api.get('/mon/services?domain=' + dominio + '&class=XSLProxyService')
-  }
   
   getLog(dominio?: any){
-    return this.api.get('/mon/log?domain='+ dominio + '');
+    return this.api.get('/log?dominio='+ dominio);
   }
 
   getDomains(params?: any){
-    return this.api.get('/mon/domain', params);
+    return this.api.get('/domains', params);
   } 
 
   getUsuarios(params?: any){
-    return this.api.get('/mon/user', params);
+    return this.api.get('/user', params);
   }
 
 }
