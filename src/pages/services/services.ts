@@ -35,7 +35,7 @@ export class ServicesPage {
      this.select_dominios = 'default';
 
     ajaxServices.getDomains().subscribe(data => {
-     // console.log(data)
+     console.log(data)
       this.domains = data["Domain"];
      
     //  console.log(this.domains);

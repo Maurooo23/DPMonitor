@@ -17,7 +17,7 @@ export class ApiProvider {
 // url: string = 'http://192.168.50.44:5556';
 
   constructor(public http: HttpClient, public dp: DpProvider) {
-    this.dp.url = "http://192.168.50.48:5556";
+    this.dp.url = "http://192.168.50.41:5556";
     //console.log(this.dp.getUrl())
    // console.log('Hello ApiProvider Provider');
   }
