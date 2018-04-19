@@ -44,10 +44,10 @@ export class ServicesPage {
     });
 
     ajaxServices.getServices(this.select_dominios).subscribe(data => {
-     // console.log(data)
+      console.log(data)
       this.servicesMpg = data["MultiProtocolGateway"];
       this.servicesWsg = data["WSGateway"];
-      this.servicesXmlf = data["WebAppFW"];
+      this.servicesWafw = data["WebAppFW"];
       this.servicesXmlf = data["XMLFirewallService"];
       this.servicesXsl = data["XSLProxyService"];
      // console.log(this.servicesMpg);
@@ -73,7 +73,7 @@ export class ServicesPage {
     this.ajaxServices.getServices(this.select_dominios).subscribe(data => {
       this.servicesMpg = data["MultiProtocolGateway"];
       this.servicesWsg = data["WSGateway"];
-      this.servicesXmlf = data["WebAppFW"];
+      this.servicesWafw = data["WebAppFW"];
       this.servicesXmlf = data["XMLFirewallService"];
       this.servicesXsl = data["XSLProxyService"];
     //  console.log(this.servicesMpg);
