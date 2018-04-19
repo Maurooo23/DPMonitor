@@ -40,4 +40,9 @@ export class AjaxServicesProvider {
     return this.api.get('/user', params);
   }
 
+  getMessage(dominio?: any, tipoServicio?: any, nombreServicio?:any){
+    console.log('/message?dominio='+ dominio +'&clase='+ tipoServicio + '&nombre='+ nombreServicio);
+    return this.api.get('/message?dominio='+ dominio +'&clase='+ tipoServicio + '&nombre='+ nombreServicio);
+  }
+
 }

@@ -32,28 +32,31 @@
         </ion-select>
     </ion-item> 
     <br>
-
-
   <ion-list >
-    <ion-item (click)="goToDetails(servicesMpg)">
-      MultiProcolGateway <br>
+    <ion-item (click)="goToDetails(servicesMpg,'MultiProtocolGateway',select_dominios)">
+      <span> MultiProcolGateway</span>
       <small>{{servicesMpg?.length}} Servicios.</small>
+      <ion-icon float-right name="ios-arrow-round-forward-outline"></ion-icon>
     </ion-item>
-    <ion-item (click)="goToDetails(servicesWsg)">
-        Web Service Proxy <br>
+    <ion-item (click)="goToDetails(servicesWsg, 'WSGateway', select_dominios)">
+       <span> Web Service Proxy</span> 
         <small>{{servicesWsg?.length}} Servicios.</small>
+        <ion-icon float-right name="ios-arrow-round-forward-outline"></ion-icon>
     </ion-item>
-    <ion-item (click)="goToDetails(servicesXmlf)">
-        XML Firewall <br>
+    <ion-item (click)="goToDetails(servicesXmlf,'WebAppFW', select_dominios)">
+      <span>XML Firewall </span>
         <small>{{servicesXmlf?.length}} Servicios.</small>
+        <ion-icon float-right name="ios-arrow-round-forward-outline"></ion-icon>
     </ion-item>
-    <ion-item (click)="goToDetails(servicesWafw)">
-        Web Aplication Firewall <br>
+    <ion-item (click)="goToDetails(servicesWafw, 'XMLFirewallService', select_dominios)">
+      <span> Web Aplication Firewall</span>
         <small>{{servicesWafw?.length}} Servicios.</small>
+        <ion-icon float-right name="ios-arrow-round-forward-outline"></ion-icon>
     </ion-item>
-    <ion-item (click)="goToDetails(servicesXsl)">
-        XSL Accelerator <br>
+    <ion-item (click)="goToDetails(servicesXsl, 'XSLProxyService', select_dominios)">
+       <span> XSL Accelerator</span>
         <small>{{servicesXsl?.length}} Servicios.</small>
+        <ion-icon float-right name="ios-arrow-round-forward-outline"></ion-icon>
     </ion-item>
   </ion-list>
 </ion-content>

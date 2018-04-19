@@ -20,6 +20,7 @@ import { LogsPage } from '../pages/logs/logs';
 import { ServicesPage } from '../pages/services/services';
 import { ServicesDetailsPage } from '../pages/services-details/services-details';
 import { AddDpPage } from '../pages/add-dp/add-dp';
+import { ServicesDetailsCountPage } from '../pages//services-details-count/services-details-count';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -47,7 +48,8 @@ export function mqttServiceFactory() {
     LogsPage,
     ServicesPage,
     ServicesDetailsPage,
-    AddDpPage
+    AddDpPage,
+    ServicesDetailsCountPage
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ export function mqttServiceFactory() {
     LogsPage,
     ServicesPage,
     ServicesDetailsPage,
-    AddDpPage
+    AddDpPage,
+    ServicesDetailsCountPage
   ],
   providers: [
     StatusBar,

@@ -15,5 +15,21 @@
 
 
 <ion-content padding class="bg-fondo">
-
+  <ion-list>
+    <ion-item >
+       <h2 text-center>MessageCounts</h2> 
+        <div *ngFor="let count of counts" (click)="goToDetailsCount(servicio.Name, tipo, dominio)">
+          <hr>
+            <small>{{count?.Monitor}}</small>
+        </div>
+    </ion-item>
+    <hr>
+    <ion-item >
+      <h2 text-center> MessageDurations</h2> 
+        <div *ngFor="let duration of durations" (click)="goToDetailsCount(servicio.Name, tipo, dominio)">
+            <hr>
+            <small>{{duration?.Monitor}}</small>
+        </div>
+    </ion-item>
+  </ion-list> 
 </ion-content>

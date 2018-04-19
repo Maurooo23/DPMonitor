@@ -16,7 +16,7 @@
 
 <ion-content padding class="bg-fondo">
  <ion-list>
-   <ion-item *ngFor="let servicio of listaServicios"> 
+   <ion-item *ngFor="let servicio of listaServicios" (click)="goToDetailsCount(servicio.Name, tipo, dominio)"> 
     <div *ngIf="servicio.OpState == 'up'; then content else other_content"></div>
     <ng-template #content>
       <ion-icon class="checkIcon"  name="checkmark-circle"></ion-icon> -  Nombre: {{servicio.Name}}
@@ -24,9 +24,9 @@
     <ng-template #other_content>
       <ion-icon class="warnIcon" name="ios-warning"></ion-icon> - Nombre: {{servicio.Name}}
     </ng-template>
-    
       <br>
       AdminState: {{servicio.AdminState}}
+      <ion-icon float-right name="ios-arrow-round-forward-outline"></ion-icon>
    </ion-item>
    <div *ngIf="listaServicios.length==0">
       No hay Servicios Disponibles.

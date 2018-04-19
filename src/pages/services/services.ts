@@ -27,6 +27,7 @@ export class ServicesPage {
   servicesXsl : any;
   domains: any;
   select_dominios: any;
+  type:any;
 
   
 
@@ -60,9 +61,11 @@ export class ServicesPage {
    // console.log('ionViewDidLoad ServicesPage');
   }
   
-  goToDetails(servicios: Array<any>){
+  goToDetails(servicios: Array<any>,type: string){
     this.navCtrl.push(ServicesDetailsPage, {
-      listaServicios: servicios
+      listaServicios: servicios,
+      tipo: type,
+      dominio:this.select_dominios
     }); 
   }
 
