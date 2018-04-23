@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { ContadoresPage } from '../contadores/contadores'
+
 import { AjaxServicesProvider } from '../../providers/ajax-services/ajax-services';
 
 /**
@@ -41,6 +43,13 @@ export class ServicesDetailsCountPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ServicesDetailsCountPage');
+  }
+
+  goToContadores(contador: Array<any>){
+    this.navCtrl.push(ContadoresPage, {
+      contadores: contador
+    })
+   
   }
 
 }

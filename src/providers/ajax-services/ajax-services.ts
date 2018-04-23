@@ -1,3 +1,5 @@
+// Proveedor de información detallada de un Datapower específico
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
@@ -12,37 +14,37 @@ export class AjaxServicesProvider {
   }
 
   firmware(params?: any) {
-    return this.api.get('/info', params);
+    return this.api.get(this.dp.getUrl() + '/info', params);
   }
 
   uptime(params?: any) {
-    return this.api.get('/uptime', params);
+    return this.api.get(this.dp.getUrl() + '/uptime', params);
   }
 
   network(params?: any){
-    return this.api.get('/network', params);
+    return this.api.get(this.dp.getUrl() + '/network', params);
   } 
 
   getServices(dominio?: string){
     console.log(this.dp.getUrl())
-    return this.api.get('/services?dominio=' + dominio);
+    return this.api.get(this.dp.getUrl() + '/services?dominio=' + dominio);
   } 
   
   getLog(dominio?: any){
-    return this.api.get('/log?dominio='+ dominio);
+    return this.api.get(this.dp.getUrl() + '/log?dominio='+ dominio);
   }
 
   getDomains(params?: any){
-    return this.api.get('/domains', params);
+    return this.api.get(this.dp.getUrl() + '/domains', params);
   } 
 
   getUsuarios(params?: any){
-    return this.api.get('/user', params);
+    return this.api.get(this.dp.getUrl() + '/user', params);
   }
 
   getMessage(dominio?: any, tipoServicio?: any, nombreServicio?:any){
     console.log('/message?dominio='+ dominio +'&clase='+ tipoServicio + '&nombre='+ nombreServicio);
-    return this.api.get('/message?dominio='+ dominio +'&clase='+ tipoServicio + '&nombre='+ nombreServicio);
+    return this.api.get(this.dp.getUrl() + '/message?dominio='+ dominio +'&clase='+ tipoServicio + '&nombre='+ nombreServicio);
   }
 
 }

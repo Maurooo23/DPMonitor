@@ -33,7 +33,9 @@ export class ServicesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ajaxServices: AjaxServicesProvider) {
 
-     this.select_dominios = 'default';
+    this.select_dominios = 'default';
+
+    console.log(ajaxServices.dp.url)
 
     ajaxServices.getDomains().subscribe(data => {
      console.log(data)

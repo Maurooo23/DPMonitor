@@ -18,7 +18,7 @@
   <ion-list>
     <ion-item >
        <h2 text-center>MessageCounts</h2> 
-        <div *ngFor="let count of counts" (click)="goToDetailsCount(servicio.Name, tipo, dominio)">
+        <div *ngFor="let count of counts" (click)="goToContadores(count)">
           <hr>
             <small>{{count?.Monitor}}</small>
         </div>
@@ -26,7 +26,7 @@
     <hr>
     <ion-item >
       <h2 text-center> MessageDurations</h2> 
-        <div *ngFor="let duration of durations" (click)="goToDetailsCount(servicio.Name, tipo, dominio)">
+        <div *ngFor="let duration of durations" (click)="goToContadores(duration)">
             <hr>
             <small>{{duration?.Monitor}}</small>
         </div>

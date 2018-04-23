@@ -18,53 +18,41 @@ import { AjaxServicesProvider } from '../../providers/ajax-services/ajax-service
 })
 export class NetworkPage {
 
- networks : any;
+  networks: any;
+  interval: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ajaxServices: AjaxServicesProvider) {
-   
-  function formatNumber (n) {
-    	n = String(n).replace(/\D/g, "");
-      n= n === '' ? n : Number(n).toLocaleString();
-      return n;
-    }
-    ajaxServices.network().subscribe(data => {
-     this.networks = data["networks"]
+    this.update()
+  }
+
+  update() {
+    this.ajaxServices.network().subscribe(data => {
+      this.networks = data["networks"];
       for (let index = 0; index < this.networks.length; index++) {
-        this.networks[index].RxHCPackets = formatNumber(this.networks[index].RxHCPackets)
-        this.networks[index].TxHCPackets = formatNumber(this.networks[index].TxHCPackets)
+        this.networks[index].RxHCPackets = this.formatNumber(this.networks[index].RxHCPackets)
+        this.networks[index].TxHCPackets = this.formatNumber(this.networks[index].TxHCPackets)
       }
-     // console.log(this.networks);
+      console.log(this.networks);
     }, err => {
-       console.log(err.message);
+      console.log(err.message);
     });
+  }
+
+  formatNumber (n) {
+    n = String(n).replace(/\D/g, "");
+    n= n === '' ? n : Number(n).toLocaleString();
+    return n;
   }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad NetworkPage');
-    function formatNumber (n) {
-    	n = String(n).replace(/\D/g, "");
-      n= n === '' ? n : Number(n).toLocaleString();
-      return n;
-    }
-     setInterval(() => { this.ajaxServices.network().subscribe(data => {
-      this.networks = data["networks"]
-      for (let index = 0; index < this.networks.length; index++) {
-        this.networks[index].RxHCPackets = formatNumber(this.networks[index].RxHCPackets)
-        this.networks[index].TxHCPackets = formatNumber(this.networks[index].TxHCPackets)
-      }
-      console.log(this.networks);
-    }, err => {
-       console.log(err.message);
-    }); }, 1000);
+    this.interval = setInterval(() => { 
+      this.update();
+    }, 1000);
   } 
 
-  toggleDetails(network) {
-    if (network.showDetails) {
-        network.showDetails = false;
-        network.icon = 'ios-arrow-dropdown-circle-outline';
-    } else {
-        network.showDetails = true;
-        network.icon = 'ios-arrow-dropup-circle-outline';
-    }
-  }
+  ionViewWillLeave() {
+    clearInterval(this.interval)
+    console.log("Alto")
+  } 
 }

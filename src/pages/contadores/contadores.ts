@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the AddDpPage page.
+ * Generated class for the ContadoresPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,21 +10,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-add-dp',
-  templateUrl: 'add-dp.html',
+  selector: 'page-contadores',
+  templateUrl: 'contadores.html',
 })
-export class AddDpPage {
+export class ContadoresPage {
+  contadores: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-
-  logForm() {
-    console.log()
+    this.contadores= navParams.get('contadores');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddDpPage');
+    console.log('ionViewDidLoad ContadoresPage');
   }
 
 }

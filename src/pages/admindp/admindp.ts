@@ -4,8 +4,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MqttMessage, MqttModule, MqttService } from 'ngx-mqtt';
 // import { Observable } from 'rxjs/Observable';
 
-import { AddDpPage } from '../add-dp/add-dp';
-
 /**
  * Generated class for the AdmindpPage page.
  *
@@ -31,10 +29,6 @@ export class AdmindpPage {
       ionViewDidLoad() {
         console.log('ionViewDidLoad AdmindpPage');
       }
-      goToAddDp(){
-        this.navCtrl.push(AddDpPage);
-      }
-
       suscribe(topic: string){
         var response;
         this.mqttService.observe(topic).subscribe((message: MqttMessage) => 

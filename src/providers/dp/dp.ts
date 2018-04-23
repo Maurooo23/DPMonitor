@@ -11,18 +11,35 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DpProvider {
 
-  url: any;
+  dps = [
+    {
+      name: 'DP1',
+      url: "http://192.168.50.41:5556"
+    },
+    {
+      name: 'DP2',
+      url: "http://192.168.50.48:5556"
+    },
+    {
+      name: 'DP3',
+      url: "http://192.168.50.49:5556"
+    }
+  ];
+
+  url: string;
 
   constructor(public http: HttpClient) {
    // console.log('Hello DpProvider Provider');
+   this.setUrl(this.dps[0].url)
   }
-
+ 
   getUrl(){
-    console.log(this.url)
+    console.log('get: ' + this.url)
     return this.url;
   }
 
   setUrl(inUrl){
     this.url = inUrl;
+    console.log('set: ' + this.url)
   }
 }

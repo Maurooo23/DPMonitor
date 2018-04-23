@@ -1,7 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { DpProvider } from '../dp/dp';
 /*
   Generated class for the ApiProvider provider.
 
@@ -12,12 +11,8 @@ import { DpProvider } from '../dp/dp';
 export class ApiProvider {
   
 
-//url: string;
-// url: string = 'http://192.168.50.41:5556';
-// url: string = 'http://192.168.50.44:5556';
-
-  constructor(public http: HttpClient, public dp: DpProvider) {
-    this.dp.url = "http://192.168.50.41:5556";
+  constructor(public http: HttpClient) {
+    //this.dp.url = "http://192.168.50.48:5556";
     //console.log(this.dp.getUrl())
    // console.log('Hello ApiProvider Provider');
   }
@@ -36,21 +31,21 @@ export class ApiProvider {
         reqOpts.params = reqOpts.params.set(k, params[k]);
       }
     }
-   // console.log(this.dp.getUrl() + '/' + endpoint, reqOpts)
+  // console.log(this.dp.getUrl())
   // console.log(this.dp.getUrl()) //solo lo recibe una vez
-    return this.http.get(this.dp.getUrl() + '/' + endpoint, reqOpts);
+    return this.http.get(endpoint, reqOpts);
   }
 
   post(endpoint: string, body: any, reqOpts?: any) {
-    return this.http.post(this.dp.getUrl() + '/' + endpoint, body, reqOpts);
+    return this.http.post(endpoint, body, reqOpts);
   }
   put(endpoint: string, body: any, reqOpts?: any) {
-    return this.http.put(this.dp.getUrl() + '/' + endpoint, body, reqOpts);
+    return this.http.put(endpoint, body, reqOpts);
   }
   delete(endpoint: string, reqOpts?: any) {
-    return this.http.delete(this.dp.getUrl() + '/' + endpoint, reqOpts);
+    return this.http.delete(endpoint, reqOpts);
   }
   patch(endpoint: string, body: any, reqOpts?: any) {
-    return this.http.patch(this.dp.getUrl() + '/' + endpoint, body, reqOpts);
+    return this.http.patch(endpoint, body, reqOpts);
   }
 }
