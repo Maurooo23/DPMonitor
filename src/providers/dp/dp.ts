@@ -34,12 +34,12 @@ export class DpProvider {
   }
  
   getUrl(){
-    console.log('get: ' + this.url)
+   // console.log('get: ' + this.url)
     return this.url;
   }
 
   setUrl(inUrl){
     this.url = inUrl;
-    console.log('set: ' + this.url)
+   // console.log('set: ' + this.url)
   }
 }

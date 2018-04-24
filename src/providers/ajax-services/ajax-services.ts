@@ -26,7 +26,7 @@ export class AjaxServicesProvider {
   } 
 
   getServices(dominio?: string){
-    console.log(this.dp.getUrl())
+   // console.log(this.dp.getUrl())
     return this.api.get(this.dp.getUrl() + '/services?dominio=' + dominio);
   } 
   
@@ -39,7 +39,7 @@ export class AjaxServicesProvider {
   } 
 
   getUsuarios(params?: any){
-    console.log(this.dp.getUrl() + '/user')
+    //console.log(this.dp.getUrl() + '/user')
     return this.api.get(this.dp.getUrl() + '/user', params);
   }
 

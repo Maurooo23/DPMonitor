@@ -32,7 +32,7 @@ export class NetworkPage {
         this.networks[index].RxHCPackets = this.formatNumber(this.networks[index].RxHCPackets)
         this.networks[index].TxHCPackets = this.formatNumber(this.networks[index].TxHCPackets)
       }
-      console.log(this.networks);
+      //console.log(this.networks);
     }, err => {
       console.log(err.message);
     });
@@ -45,7 +45,7 @@ export class NetworkPage {
   }
   
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NetworkPage');
+   // console.log('ionViewDidLoad NetworkPage');
     this.interval = setInterval(() => { 
       this.update();
     }, 1000);

@@ -26,7 +26,7 @@ export class ServicesDetailsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ServicesDetailsPage');
+   // console.log('ionViewDidLoad ServicesDetailsPage');
   }
   
   goToDetailsCount(servicio: any,tipo:any,dominio:any){

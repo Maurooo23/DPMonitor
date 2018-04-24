@@ -31,7 +31,7 @@ export class ServicesDetailsCountPage {
 
 
     ajaxServices.getMessage(this.dominio,this.tipo,this.servicio).subscribe(data => {
-      console.log(data)
+     // console.log(data)
       this.counts = data["MessageCounts"];
       this.durations = data["MessageDurations"];
 
@@ -42,7 +42,7 @@ export class ServicesDetailsCountPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ServicesDetailsCountPage');
+   // console.log('ionViewDidLoad ServicesDetailsCountPage');
   }
 
   goToContadores(contador: Array<any>){

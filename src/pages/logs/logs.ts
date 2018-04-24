@@ -37,13 +37,13 @@ export class LogsPage {
         this.logs[index].icon = 'ios-arrow-dropdown-circle-outline';
       }
      this.logs = this.logs.slice(0, 11);
-      console.log(this.logs);
+     // console.log(this.logs);
     }, err => {
       console.log(err.message);
     });
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LogsPage');
+   // console.log('ionViewDidLoad LogsPage');
   }
   toggleDetails(log) {
     if (log.showDetails) {
@@ -56,7 +56,7 @@ export class LogsPage {
   }
   onChange(selectDominio){
     this.select_dominios = selectDominio;
-    console.log(selectDominio);
+   // console.log(selectDominio);
     this.ajaxServices.getLog(this.select_dominios).subscribe(data =>{
       this.logs = data["Log"];
       for (let index = 0; index < this.logs.length; index++) {
@@ -64,7 +64,7 @@ export class LogsPage {
         this.logs[index].icon = 'ios-arrow-dropdown-circle-outline';
       }
       this.logs = this.logs.slice(0, 11);
-      console.log(this.logs);
+    //  console.log(this.logs);
     }, err => {
       console.log(err.message);
     });

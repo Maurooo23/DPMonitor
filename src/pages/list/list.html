@@ -8,29 +8,27 @@
 </ion-header>
 
 <ion-content padding class="bg-fondo" >
-      <ion-item>
-          <ion-label>Dominios</ion-label>
-          <ion-select interface="popover" multiple="false" [(ngModel)]="select_dominios" (ionChange)="onChange(select_dominios)">
-            <ion-option *ngFor="let dominio of domains"  [selected]="select_dominios == dominio" [value]="dominio">{{dominio}}</ion-option>
-          </ion-select>
-      </ion-item> 
-      <br>
-      <ion-item >
-          Conexiones de Usuarios:  {{usuarios?.length}}
-      </ion-item>
- 
-      <br>
-<ion-list >
-  <ion-item *ngFor="let usuario of usuarios" (click)="toggleDetails(usuario)"> 
-    
-      <ion-icon item-end [name]="usuario.icon"></ion-icon>
-     Usuario: {{usuario.name}}
-        <div *ngIf="usuario.showDetails">
-            <ion-item >Address: {{usuario.address}}</ion-item>
-            <ion-item >Connection: {{usuario.connection}}</ion-item>
-            <ion-item >Login: {{usuario.login}}</ion-item>
-            <ion-item >Session: {{usuario.session}}</ion-item>
-        </div>
+  <ion-item>
+     <ion-label>Dominios</ion-label>
+    <ion-select interface="popover" multiple="false" [(ngModel)]="select_dominios" (ionChange)="onChange(select_dominios)">
+       <ion-option *ngFor="let dominio of domains"  [selected]="select_dominios == dominio" [value]="dominio">{{dominio}}</ion-option>
+    </ion-select>
+  </ion-item>  
+<br>
+  <ion-item >
+    Conexiones de Usuarios:  {{usuarios?.length}}
   </ion-item>
-</ion-list>
+<br>
+  <ion-list >
+    <ion-item *ngFor="let usuario of usuarios" (click)="toggleDetails(usuario)"> 
+    <ion-icon item-end [name]="usuario.icon"></ion-icon>
+      Usuario: {{usuario.name}}
+      <div *ngIf="usuario.showDetails">
+        <ion-item >Address: {{usuario.address}}</ion-item>
+        <ion-item >Connection: {{usuario.connection}}</ion-item>
+        <ion-item >Login: {{usuario.login}}</ion-item>
+        <ion-item >Session: {{usuario.session}}</ion-item>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content> 
