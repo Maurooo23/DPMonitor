@@ -39,11 +39,12 @@ export class AjaxServicesProvider {
   } 
 
   getUsuarios(params?: any){
+    console.log(this.dp.getUrl() + '/user')
     return this.api.get(this.dp.getUrl() + '/user', params);
   }
 
   getMessage(dominio?: any, tipoServicio?: any, nombreServicio?:any){
-    console.log('/message?dominio='+ dominio +'&clase='+ tipoServicio + '&nombre='+ nombreServicio);
+   // console.log('/message?dominio='+ dominio +'&clase='+ tipoServicio + '&nombre='+ nombreServicio);
     return this.api.get(this.dp.getUrl() + '/message?dominio='+ dominio +'&clase='+ tipoServicio + '&nombre='+ nombreServicio);
   }
 

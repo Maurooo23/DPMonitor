@@ -19,28 +19,32 @@ export class ListPage {
     this.select_dominios = 'default';
 
     ajaxServices.getUsuarios().subscribe(data => {
-      //console.log(data)
-     var ordenar = data["users"]; 
+      console.log(data["users"]["ActiveUsers"])
+      var ordenar = data["users"]["ActiveUsers"]; 
       var ordenados = {};
 
-      ordenar.forEach(item => {
-        if(!ordenados.hasOwnProperty(item.domain)){
-          ordenados[item.domain] = [];
-        }
-        ordenados[item.domain].push(item);
-      });
-
-      this.usuarios = ordenados[this.select_dominios];
-      this.domains = Object.keys(ordenados);
-      this.objetoUsuarios = ordenados;
-     for (let index = 0; index < this.usuarios.length; index++) {
-            this.usuarios[index].showDetails = false;
-            this.usuarios[index].icon = 'ios-arrow-dropdown-circle-outline';
+      if(ordenar instanceof Array) {
+        ordenar.forEach(item => {
+          if(!ordenados.hasOwnProperty(item.domain)){
+            ordenados[item.domain] = [];
           }
-      console.log(this.domains);
-      console.log(this.usuarios.length);
+          ordenados[item.domain].push(item);
+        });
+  
+        this.usuarios = ordenados[this.select_dominios];
+        this.domains = Object.keys(ordenados);
+        this.objetoUsuarios = ordenados;
+        for (let index = 0; index < this.usuarios.length; index++) {
+          this.usuarios[index].showDetails = false;
+          this.usuarios[index].icon = 'ios-arrow-dropdown-circle-outline';
+        }
+        console.log(this.domains);
+        console.log(this.usuarios.length);
+      } else {
+
+      }
     }, err => {
-       console.log(err.message);
+      console.log(err.message);
     });
   }
 
@@ -63,8 +67,8 @@ export class ListPage {
         this.usuarios[index].showDetails = false;
         this.usuarios[index].icon = 'ios-arrow-dropdown-circle-outline';
       }
-  //    console.log(this.domains);
-    //  console.log(this.usuarios);
+     console.log(this.domains);
+      console.log(this.usuarios);
     }, err => {
        console.log(err.message);
     });

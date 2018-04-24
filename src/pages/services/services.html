@@ -20,13 +20,6 @@
         <ion-label>Dominios</ion-label>
         <ion-select interface="popover" multiple="false" [(ngModel)]="select_dominios" (ionChange)="onChange(select_dominios)">
           <ion-option *ngFor="let dominio of domains"  [selected]="select_dominios == dominio.Name" [value]="dominio.Name">
-           <!-- <div *ngIf="dominio.OpState == 'up'; then content else other_content"></div>
-              <ng-template #content>
-                <ion-icon class="checkIcon"  name="checkmark-circle"></ion-icon> -  {{dominio.Name}}
-              </ng-template>
-              <ng-template #other_content>
-                <ion-icon class="warnIcon" name="ios-warning"></ion-icon> - {{dominio.Name}}
-              </ng-template> -->
               {{dominio.Name}}
           </ion-option>
         </ion-select>

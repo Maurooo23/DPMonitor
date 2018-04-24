@@ -35,10 +35,10 @@ export class ServicesPage {
 
     this.select_dominios = 'default';
 
-    console.log(ajaxServices.dp.url)
+   // console.log(ajaxServices.dp.url)
 
     ajaxServices.getDomains().subscribe(data => {
-     console.log(data)
+    // console.log(data)
       this.domains = data["Domain"];
      
     //  console.log(this.domains);
@@ -47,7 +47,7 @@ export class ServicesPage {
     });
 
     ajaxServices.getServices(this.select_dominios).subscribe(data => {
-      console.log(data)
+     // console.log(data)
       this.servicesMpg = data["MultiProtocolGateway"];
       this.servicesWsg = data["WSGateway"];
       this.servicesWafw = data["WebAppFW"];

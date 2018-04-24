@@ -24,10 +24,8 @@ export class HomePage {
   }
 
   update() {
-    console.log('obteniendo datos lindos')
-    console.log(this.ajaxServices.dp.url)
     this.ajaxServices.firmware().subscribe(data => {
-      console.log(data)
+     // console.log(data)
       this.firmware = data["version"]; 
     }, err => {
       console.log(err.message);
