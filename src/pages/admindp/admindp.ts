@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { MqttMessage, MqttModule, MqttService } from 'ngx-mqtt';
+import { 
+  MqttMessage,
+  // MqttModule,
+    MqttService } from 'ngx-mqtt';
 // import { Observable } from 'rxjs/Observable';
 
 /**

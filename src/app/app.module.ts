@@ -3,9 +3,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
+//import { Observable } from 'rxjs/Observable';
 import {
-  MqttMessage,
+ // MqttMessage,
   MqttModule,
   MqttService
 } from 'ngx-mqtt';
